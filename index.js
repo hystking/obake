@@ -1,6 +1,6 @@
 const Koa = require("koa");
 const router = require("koa-router")();
-const crawl = require("./lib/crawl");
+const scrape = require("./lib/scrape");
 
 const app = new Koa();
 
@@ -8,10 +8,10 @@ router.get("/", async function (ctx) {
   const url = ctx.request.query.url;
   const res = {
     url,
-    crawled_at: Date.now(),
+    scraped_at: Date.now(),
   };
   try {
-    Object.assign(res, await crawl(url));
+    Object.assign(res, await scrape(url));
   } catch(e) {
     ctx.status = 500;
     Object.assign(res, {error: e});
@@ -24,4 +24,4 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(3000);
+app.listen(5000);
