@@ -27,6 +27,7 @@ module.exports = {
       ref  : 'origin/develop',
       repo : 'git@github.com:hystking/obake.git',
       path : '/var/www/production',
+      'ssh_options': 'StrictHostKeyChecking=no',
       'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
