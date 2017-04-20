@@ -4,6 +4,10 @@ const scrape = require("./lib/scrape");
 
 const app = new Koa();
 
+router.get("/api/ping.json", async function (ctx) {
+  ctx.body = {status: "alive"};
+});
+
 router.get("/api/scrape.json", async function (ctx) {
   const url = ctx.request.query.url;
   const res = {
