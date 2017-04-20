@@ -4,7 +4,7 @@ const scrape = require("./lib/scrape");
 
 const app = new Koa();
 
-router.get("/", async function (ctx) {
+router.get("/api/scrape.json", async function (ctx) {
   const url = ctx.request.query.url;
   const res = {
     url,
