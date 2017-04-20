@@ -23,11 +23,11 @@ module.exports = {
   deploy : {
     production : {
       user : 'app',
-      host : 'obake-vagrant',
+      host : 'obake',
       ref  : 'origin/develop',
       repo : 'git@github.com:hystking/obake.git',
-      path : '/var/www/production',
-      'ssh_options': 'StrictHostKeyChecking=no',
+      path : '/var/www/obake/production',
+      'ssh_options': ['ForwardAgent=yes'],
       'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
