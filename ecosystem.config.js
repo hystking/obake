@@ -23,7 +23,7 @@ module.exports = {
   deploy : {
     production : {
       user : 'app',
-      host : 'obake-prod',
+      host : 'obake-prod-app',
       ref  : 'origin/develop',
       repo : 'git@github.com:hystking/obake.git',
       path : '/var/www/obake/production',
